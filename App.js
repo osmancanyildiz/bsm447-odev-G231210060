@@ -1,20 +1,29 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { SavedProvider } from './src/context/SavedContext';
+import Tabs from './src/navigation/Tabs';
+import DetailScreen from './src/screens/DetailScreen';
 
+const Stack = createNativeStackNavigator();
+
+// Yapı: Stack -> [Tabs (Liste, Kaydedilenler), Detay]
+// Detay, sekmelerin üstünde açılır
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SavedProvider>
+      <NavigationContainer>
+        <Stack.Navigator
+          screenOptions={{
+            headerStyle: { backgroundColor: '#1F3A93' },
+            headerTintColor: '#fff',
+          }}
+        >
+          <Stack.Screen name="Tabs" component={Tabs} options={{ headerShown: false }} />
+          <Stack.Screen name="Detail" component={DetailScreen} options={{ title: 'Detay' }} />
+        </Stack.Navigator>
+      </NavigationContainer>
+      <StatusBar style="light" />
+    </SavedProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
