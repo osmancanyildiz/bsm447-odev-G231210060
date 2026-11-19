@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "bsm447-odev-G231210060",
+    "name": "Kuzgunpençe Yuvası",
     "slug": "bsm447-odev-G231210060",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -10,8 +10,9 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.g231210060.kuzgunpence",
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#1F3A93",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
